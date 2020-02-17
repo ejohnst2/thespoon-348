@@ -7,9 +7,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%# if controller[:pages] && action[:home] %>
+      <!-- load something on this condition -->
+    <%# end %>
   </head>
 
   <body>
+    <p>YumYum Food Guide</p>
     <%= yield %>
+    <p>Facebook Github LinkedIn</p>
   </body>
 </html>

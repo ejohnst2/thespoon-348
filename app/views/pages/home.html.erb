@@ -1,0 +1,23 @@
+<h1>Welcome!</h1>
+
+<% categories = ["indian", "chinese", "australian"] %>
+
+<ol>
+  <% categories.each do |category| %>
+  <li><%= category.capitalize %></li>
+  <% end %>
+</ol>
+
+<h2>Search by category</h2>
+<form action="/restaurants" method="get">
+  <input type="text" name="food_type" placeholder="What kind of food?">
+  <input type="submit">
+</form>
+
+<h2>Add a new restaurant</h2>
+<form action="/restaurants" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="name" placeholder="Name">
+  <input type="text" name="address" placeholder="Address">
+  <input type="submit">
+</form>

@@ -1,0 +1,14 @@
+
+<h1>food type: <%= @category %></h1>
+
+<ol>
+  <% @restaurants.each do |id, restaurant| %>
+    <li><%= restaurant[:name] %>, <%= restaurant[:address] %></li>
+  <% end %>
+</ol>
+
+<!-- execute ruby but don't display anything -->
+<%#  %>
+
+<!-- execute ruby and display result -->
+<%#=  %>
