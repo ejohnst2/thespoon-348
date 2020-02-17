@@ -1,9 +1,9 @@
-
-<h1>food type: <%= @category %></h1>
-
 <ol>
-  <% @restaurants.each do |id, restaurant| %>
-    <li><%= restaurant[:name] %>, <%= restaurant[:address] %></li>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <%= link_to restaurant.name, restaurant_path(restaurant) %>
+      <%= restaurant[:address] %>
+    </li>
   <% end %>
 </ol>
 
