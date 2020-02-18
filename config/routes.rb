@@ -4,18 +4,23 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about', as: :about
   get 'contact', to: 'pages#contact', as: :contact
 
-  resources :restaurants
+  resources :restaurants do
+    # need to nest these because we need the restaurant ID
+    resources :reviews, only: [:new, :create, :index]
 
-  # 7 CRUD routes
+    collection do
+      get 'top'
+    end
 
-  # get 'restaurants/:id/edit', to: 'restaurants#edit'
-  # patch 'restaurants/:id', to: 'restaurants#update'
+    member do
+      get 'chef'
+    end
+  end
 
-  # get 'restaurants/new', to: 'restaurants#new'
-  # post 'restaurants', to: 'restaurants#create'
+  namespace :admin do
+    resources :restaurants, only: [:index]
+  end
 
-  # get 'restaurants', to: 'restaurants#index'
-  # get 'restaurants/:id', to: 'restaurants#show', as: :restaurant
-
-  # delete "restaurants/:id", to: "restaurants#destroy"
+  # don't need to nest this because we don't need the restaurant ID
+  resources :reviews, only: [:show, :destroy]
 end

@@ -1,0 +1,7 @@
+<h2>Top Restaurants in the World</h2>
+
+<ol>
+  <% @restaurants.each do |r| %>
+    <li><%= r.name %>: <%= r.stars %> stars</li>
+  <% end %>
+</ol>

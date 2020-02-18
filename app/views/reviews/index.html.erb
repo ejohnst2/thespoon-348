@@ -1,0 +1,9 @@
+<h2>Reviews</h2>
+<ul>
+  <% @reviews.each do |r| %>
+    <li>
+      <p><%= r.content %></p>
+      <p><strong><%= r.stars %></strong></p>
+    </li>
+  <% end %>
+</ul>
